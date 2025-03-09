@@ -1,0 +1,14 @@
+git clone https://github.com/node-real/bsc-erigon.git
+cd bsc-erigon
+make erigon
+docker pull ghcr.io/node-real/bsc-erigon:${latest_version}
+./build/bin/erigon \
+--datadir="<your_data_directory_path>" \
+--chain=bsc \
+--port=30303 \
+--http.port=8545 \
+--authrpc.port=8551 \
+--torrent.port=42069 \
+--private.api.addr=127.0.0.1:9090 \
+--http --ws \
+--http.api=eth,debug,net,trace,web3,erigon,bsc
